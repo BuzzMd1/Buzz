@@ -748,7 +748,6 @@ global.dfail = (type, m, conn) => {
       let msg = {
     owner: 'Khusus owner',
     mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
-    premium: 'Perintah ini hanya dapat digunakan oleh _*Premium*_ !',
     group: 'Perintah ini hanya dapat digunakan di grup!',
     private: 'Perintah ini hanya dapat digunakan di Chat Pribadi!',
     admin: 'Khusus Admin group',
