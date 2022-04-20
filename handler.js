@@ -706,9 +706,9 @@ module.exports = {
                             pp = await this.profilePictureUrl(user, 'image')
                         } catch (e) {
                         } finally {
-                            text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Halo').replace('@subject', groupMetadata.subject).replace('@desc', groupMetadata.desc.toString()) :
-                                (chat.sBye || this.bye || conn.bye || 'Sayonara'))
-                                this.sendButtonLoc(id, await(await fetch(pp)).buffer(), text, '', "yes", "bye", null)
+                            text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Yah,si Beban Masuk Grup').replace('@subject', groupMetadata.subject).replace('@desc', groupMetadata.desc.toString()) :
+                                (chat.sBye || this.bye || conn.bye || 'Sip, Beban Berkurang 1'))
+                                this.sendButtonLoc(id, await(await fetch(pp)).buffer(), text, '', "ok", "bye", null)
                                 }
                     }
                 }
@@ -745,23 +745,19 @@ Untuk mematikan fitur ini, ketik
 }
 
 global.dfail = (type, m, conn) => {
-      let msg = {
-    owner: 'Khusus owner',
-    mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
-    group: 'Perintah ini hanya dapat digunakan di grup!',
-    private: 'Perintah ini hanya dapat digunakan di Chat Pribadi!',
-    admin: 'Khusus Admin group',
-    nsfw: 'Perintah ini hanya bisa diaktifkan oleh owner',
-  }[type]
-  if (msg) return conn.sendButton(m.chat, msg, footer, 'OK', 'Nanii', m)
-  let botAdmin = {
-    botAdmin: 'Perintah ini hanya bisa digunakan saat *_Bot Menjadi Admin_*',
-  }[type]
-  if (botAdmin) return conn.sendButton(m.chat, botAdmin, 'Lupa Saya', 'Eh iya ya', 'Nanii', m)
-  let unreg = {
-    unreg: `Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Vlynn.16*`
-  }[type]
-  if (unreg) return conn.sendButton(m.chat, `Halo kak ${name} Sebelum menggunakan fitur ini Harap Verify Terlebih dahulu`, footer, 'Verify', `.daftar ${name}.18`, m)
+    let msg = {
+        rowner: 'Perintah ini hanya dapat digunakan oleh _*OWWNER!1!1!*_',
+        owner: 'Perintah ini hanya dapat digunakan oleh _*Owner Bot*_!',
+        mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
+        premium: 'Perintah ini hanya untuk member _*Premium*_ !',
+        group: 'Perintah ini hanya dapat digunakan di grup!',
+        private: 'Perintah ini hanya dapat digunakan di Chat Pribadi!',
+        admin: 'Perintah ini hanya untuk *Admin* grup!',
+        botAdmin: 'Jadikan bot sebagai *Admin* untuk menggunakan perintah ini!',
+        unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Manusia.16*',
+        restrict: 'Fitur ini di *disable*!'
+    }[type]
+    if (msg) return m.reply(msg)
 }
 
 let fs = require('fs')
